@@ -1,10 +1,14 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
-import './index.css';
-import {App} from './App';
+
+import {Counter} from './components/Counter/Counter';
+import {Nav} from './components/Nav/Nav';
 
 ReactDOM.render(
-    <App />,
+  <>
+    <Nav />
+    <Counter/>
+  </>,
   document.getElementById('root')
 );
 
