@@ -1,3 +1,4 @@
+
 import { useState } from 'react';
 import { getPokemon } from '../../api/api';
 
@@ -82,12 +83,9 @@ function Counter(props) {
          <br />
          <input className='form-control' type="number" onChange={printPokemon}  placeholder='Ingresa el titulo del contador'/>
          <br />
-         <p>Elije el color de fondo:</p>
-         <input className='form-control' type="color" onChange={setColor}  placeholder='Ingresa el titulo del contador'/>
-         <br />
          <h3>Trae un Pokémon:</h3>
          <br />
-         {state.pokemonID &&
+         {state.pokemonID > 0 &&
             <>
             <h3>{state.pokemonName}</h3>
             <img className='img-fluid' src={state.pokemonImage} alt='Pokémon' />   

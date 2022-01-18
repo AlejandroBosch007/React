@@ -1,13 +1,17 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
+import {global} from './global/global';
 
-import {Counter} from './components/Counter/Counter';
+import {Quotes} from './components/Quotes/Quotes';
 import {Nav} from './components/Nav/Nav';
+
+
+
 
 ReactDOM.render(
   <>
     <Nav />
-    <Counter/>
+    <Quotes quotesDB={global.quotesDB} />
   </>,
   document.getElementById('root')
 );
