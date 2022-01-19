@@ -16,7 +16,9 @@ ReactDOM.render(
      <Route path="/counter" element={<Counter />} />   
      <Route path="*" element={<NotFound />} />   
      </Routes>
-  </BrowserRouter>,
+  </BrowserRouter>
+  
+  ,
   document.getElementById('root')
 );
 

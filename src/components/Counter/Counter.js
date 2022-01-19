@@ -1,6 +1,6 @@
 
 import { useState } from 'react';
-import { getPokemon } from '../../api/api';
+import { getPokemon, savePokemon } from '../../api/api';
 
 import './Counter.css';
 
@@ -53,7 +53,9 @@ function Counter(props) {
             pokemonName: pokeJSON.name,
             pokemonID: event.target.value
         }
-        setState(newState)   
+        setState(newState)
+
+        console.log(await savePokemon(state.pokemonID))   
     }
  
     const isEven = state.counter % 2 === 0
