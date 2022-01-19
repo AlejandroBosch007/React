@@ -1,18 +1,22 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
 import {global} from './global/global';
-
-import {Quotes} from './components/Quotes/Quotes';
+import { BrowserRouter, Routes, Route } from "react-router-dom";
+import {Home} from './pages/Home';
+import {NotFound} from './pages/404';
 import {Nav} from './components/Nav/Nav';
-
-
+import {Counter} from './components/Counter/Counter';
 
 
 ReactDOM.render(
-  <>
-    <Nav />
-    <Quotes quotesDB={global.quotesDB} />
-  </>,
+  <BrowserRouter>
+  <Nav />
+    <Routes>
+     <Route path="/quotes" element={<Home quotesDB={global.quotesDB} />} />  
+     <Route path="/counter" element={<Counter />} />   
+     <Route path="*" element={<NotFound />} />   
+     </Routes>
+  </BrowserRouter>,
   document.getElementById('root')
 );
 
