@@ -1,4 +1,3 @@
-
 import { useState } from 'react';
 import { getPokemon, savePokemon } from '../../api/api';
 
@@ -25,8 +24,6 @@ function GetPokemon(props) {
     }
  
   return (
-<div className='container text-center'>
-
    <div className='card'>
       <div className='card-body'>
       <h3>Trae un Pokémon:</h3>
@@ -41,7 +38,6 @@ function GetPokemon(props) {
          <br />
          </div>
    </div>
-</div>
   );
 }
 
