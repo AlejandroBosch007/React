@@ -13,12 +13,12 @@ function Nav() {
         <ul className="navbar-nav me-auto mb-2 mb-lg-0">
           <li className="nav-item">
 
-            <NavLink className="nav-link" to="/quotes">Quotes</NavLink>
+            <NavLink className="nav-link" to="/">Pokemon</NavLink>
 
           </li>
           <li className="nav-item">
   
-            <NavLink className="nav-link" to="/counter">Counter</NavLink>
+            <NavLink className="nav-link" to="/quotes">Quotes</NavLink>
   
           </li>
         </ul>

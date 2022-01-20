@@ -1,12 +1,10 @@
 
 import { useState } from 'react';
-import { getPokemon, savePokemon } from '../../api/api';
-
 import './Counter.css';
 
 function Counter(props) {
 
-    const [state, setState] = useState({counter: 0,title:"Contador de estado",color:"blue",pokemonImage:"",pokemonName:"",pokemonID:false})  
+    const [state, setState] = useState({counter: 0,title:"Contador de estado",color:"blue"})  
 
     const add = () =>{
         let newState = {
@@ -40,34 +38,14 @@ function Counter(props) {
         }
         setState(newState)
     }
-
-
-    const printPokemon = async (event) =>{
-
-        let newPokemon =  await getPokemon(event.target.value)
-        let pokeJSON = await newPokemon.json()
-
-        let newState = {
-            ...state,
-            pokemonImage: pokeJSON.sprites.front_default,
-            pokemonName: pokeJSON.name,
-            pokemonID: event.target.value
-        }
-        setState(newState)
-
-        console.log(await savePokemon(state.pokemonID))   
-    }
- 
     const isEven = state.counter % 2 === 0
     const message = isEven ? "Is Even" : "Is Odd"
-
-
   return (
 <div className='container text-center'>
    <br />
    <div className='card'>
       <div className='card-body'>
-         <h3>Contador</h3>
+         <h3>Counter</h3>
          <h3>{state.counter}</h3>
          <h4>{message}</h4>
          <br />
@@ -86,24 +64,6 @@ function Counter(props) {
       </div>
    </div>
    <br />
-
-   <div className='card'>
-      <div className='card-body'>
-
-      <h3>Trae un Pokémon:</h3>
-         <input className='form-control' type="number" onChange={printPokemon}  placeholder='Ingresa ID del Pokémon'/>
-         <br />
-         {state.pokemonID > 0 &&
-            <>
-            <h3>{state.pokemonName}</h3>
-            <img className='img-fluid' src={state.pokemonImage} alt='Pokémon' />   
-            </>
-         } 
-         <br />
-
-         </div>
-   </div>
-
 </div>
   );
 }
