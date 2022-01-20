@@ -1,11 +1,19 @@
 const express = require("express")
 const cors = require("cors")
+const sql = require("./db/conexion")
 const app = express()
 
+
+//Views
+const pokemon = require("./view/pokemon")
+
+//Midlewares
 app.use(express.json())
 app.use(cors())
 
-function serverStart() {
+
+async function serverStart() {
+    await sql.authenticate();
     app.listen(3001,()=>{
         console.log("Server start on http:localhost:3001")
     })
@@ -13,7 +21,5 @@ function serverStart() {
 
 serverStart()
 
+pokemon(app);
 
-app.post("/savepokemon", (req,res) =>{
-    res.send({ok:"OK desde el back"})
-})

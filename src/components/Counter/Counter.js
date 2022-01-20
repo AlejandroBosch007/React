@@ -67,7 +67,7 @@ function Counter(props) {
    <br />
    <div className='card'>
       <div className='card-body'>
-         <h3>Contador de Pokémon</h3>
+         <h3>Contador</h3>
          <h3>{state.counter}</h3>
          <h4>{message}</h4>
          <br />
@@ -83,9 +83,15 @@ function Counter(props) {
             </div>
          </div>
          <br />
-         <input className='form-control' type="number" onChange={printPokemon}  placeholder='Ingresa el titulo del contador'/>
-         <br />
-         <h3>Trae un Pokémon:</h3>
+      </div>
+   </div>
+   <br />
+
+   <div className='card'>
+      <div className='card-body'>
+
+      <h3>Trae un Pokémon:</h3>
+         <input className='form-control' type="number" onChange={printPokemon}  placeholder='Ingresa ID del Pokémon'/>
          <br />
          {state.pokemonID > 0 &&
             <>
@@ -94,8 +100,10 @@ function Counter(props) {
             </>
          } 
          <br />
-      </div>
+
+         </div>
    </div>
+
 </div>
   );
 }
