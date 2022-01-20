@@ -16,7 +16,7 @@ function ListPokemon() {
 
 
     return (
-        <div className="card" onClick={newListPokemon}>
+        <div className="card" onLoad={newListPokemon}>
             <div className="card-body">
                 <h3>Lista de Pokemones:</h3>
                 <table className="table table-bordered table-striped">
