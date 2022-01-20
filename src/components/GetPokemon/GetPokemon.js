@@ -2,9 +2,9 @@
 import { useState } from 'react';
 import { getPokemon, savePokemon } from '../../api/api';
 
-import './Pokemon.css';
+import './GetPokemon.css';
 
-function Pokemon(props) {
+function GetPokemon(props) {
 
     const [state, setState] = useState({pokemonImage:"",pokemonName:"",pokemonID:false})  
 
@@ -21,12 +21,9 @@ function Pokemon(props) {
         }
         setState(newState)
 
-        console.log(await savePokemon(state.pokemonID))   
+        console.log(await savePokemon(event.target.value))   
     }
  
-
-
-
   return (
 <div className='container text-center'>
 
@@ -48,4 +45,4 @@ function Pokemon(props) {
   );
 }
 
-export {Pokemon};
+export {GetPokemon};

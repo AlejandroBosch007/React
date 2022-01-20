@@ -1,10 +1,10 @@
 
-import { Pokemon } from "../components/Pokemon/Pokemon";
+import { GetPokemon } from "../components/GetPokemon/GetPokemon";
 
-function PokemonPage() {
+function Pokemon() {
     return ( 
-        <Pokemon/ >
+        <GetPokemon/ >
      );
 }
 
-export {PokemonPage};
+export {Pokemon};
