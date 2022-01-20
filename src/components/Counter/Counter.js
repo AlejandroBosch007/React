@@ -2,7 +2,7 @@
 import { useState } from 'react';
 import './Counter.css';
 
-function Counter(props) {
+function Counter() {
 
     const [state, setState] = useState({counter: 0,title:"Contador de estado",color:"blue"})  
 
