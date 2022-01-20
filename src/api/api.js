@@ -15,4 +15,9 @@ const savePokemon = async (idPokemon) =>{
     .catch(err => console.log(err))
 }
 
-export {getPokemon,savePokemon};
+const listPokemon = async () =>{
+    let list = await fetch('http://localhost:3001/listpokemon');
+    return list
+}
+
+export {getPokemon,savePokemon,listPokemon};

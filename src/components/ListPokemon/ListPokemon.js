@@ -1,4 +1,5 @@
 import { useState } from 'react';
+import {listPokemon} from '../../api/api';
 
 function ListPokemon() {
 
@@ -6,8 +7,16 @@ function ListPokemon() {
 
     const [list, setList] = useState(pokelist)
 
+    const newListPokemon = async () => {
+         const pokelistBak = await listPokemon()
+         let pokeJSON = await pokelistBak.json()
+         console.log(  pokeJSON.list[0])
+         setList(pokeJSON.list[0])
+    }   
+
+
     return (
-        <div className="card">
+        <div className="card" onClick={newListPokemon}>
             <div className="card-body">
                 <h3>Lista de Pokemones:</h3>
                 <table className="table table-bordered table-striped">
@@ -21,8 +30,8 @@ function ListPokemon() {
                        {
                             list.map(pokemon =>(
                             <tr key={pokemon.idPokemon}>
-                                <td>pokemon.idPokemon</td>
-                                <td>pokemon.date</td>
+                                <td>{pokemon.idPokemon}</td>
+                                <td>{pokemon.date}</td>
                             </tr>
                                 ))
                         }   
