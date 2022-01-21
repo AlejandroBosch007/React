@@ -1,15 +1,6 @@
 import './Quotes.css';
 import { useState } from 'react';
 
-
-
-
-
-
-
-
-
-
 function Quotes({quotesDB}) {
 
 const [quotes,setQuotes] = useState(quotesDB)

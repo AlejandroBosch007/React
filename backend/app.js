@@ -6,6 +6,7 @@ const app = express()
 
 //Views
 const pokemon = require("./view/pokemon")
+const user = require("./view/user")
 
 //Midlewares
 app.use(express.json())
@@ -22,4 +23,5 @@ async function serverStart() {
 serverStart()
 
 pokemon(app);
+user(app);
 

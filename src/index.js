@@ -5,6 +5,7 @@ import { BrowserRouter, Routes, Route } from "react-router-dom";
 import {Home} from './pages/Home';
 import {Pokemon} from './pages/Pokemon';
 import {NotFound} from './pages/404';
+import {Login} from './pages/Login';
 
 import {Nav} from './components/Nav/Nav';
 
@@ -15,7 +16,8 @@ ReactDOM.render(
   <Nav />
     <Routes>
      <Route path="/" element={<Pokemon />} />   
-     <Route path="/quotes" element={<Home quotesDB={global.quotesDB} />} />  
+     <Route path="/quotes" element={<Home quotesDB={global.quotesDB} />} />
+     <Route path="/login" element={<Login />} />   
      <Route path="*" element={<NotFound />} />   
      </Routes>
   </BrowserRouter>
@@ -23,4 +25,3 @@ ReactDOM.render(
   ,
   document.getElementById('root')
 );
-
