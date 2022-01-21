@@ -6,7 +6,6 @@ import {Home} from './pages/Home';
 import {Pokemon} from './pages/Pokemon';
 import {NotFound} from './pages/404';
 import {Login} from './pages/Login';
-
 import {Nav} from './components/Nav/Nav';
 
 

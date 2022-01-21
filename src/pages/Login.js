@@ -1,8 +1,10 @@
 import { useState } from 'react';
-
+import { useNavigate } from "react-router-dom";
 import {apiLogin} from '../api/api';
 
 function Login() {
+
+    const navigate = useNavigate()
 
     const [loading,setLoading] = useState(false)
 
@@ -18,7 +20,6 @@ function Login() {
 
         let loginResult = await apiLogin(newLogin)
         if (loginResult) {
-            console.log(loginResult)
             setLoading(false)
 
             if(loginResult.error){
@@ -28,10 +29,13 @@ function Login() {
             }
 
             if(loginResult.token){
-
                 setError({...error,
                     error:false})
-                
+                    localStorage.setItem("TOKEN",loginResult.token)
+                    let data = loginResult.token.split(".")
+                    let userData = window.atob(data[1])
+                    localStorage.setItem("USERDATA",userData)
+                    navigate("/quotes")
             }
 
         }
@@ -53,7 +57,7 @@ function Login() {
                         )}
                         <form onSubmit={login}>
                             <div className="form-floating mb-3">
-                                <input type="email" className="form-control" id="floatingInput" placeholder="name@example.com"  required/>
+                                <input type="email" className="form-control" id="floatingInput" placeholder="name@example.com" autoFocus required/>
                                 <label htmlFor="floatingInput">Email address</label>
                             </div>
                             <div className="form-floating">

@@ -6,6 +6,6 @@ module.exports.loginUser = async (userData) =>{
     if (response.login) {
       return {token: await jwt.sign(response.data,"Alojomora")}
     }
-    return {error:"Usuario no encontrado"}
+    return {error:"Usuaria(o) o contraseña incorrectos"}
 }
 
