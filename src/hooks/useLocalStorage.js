@@ -21,7 +21,11 @@ function useLocalStorage(dataName,initialValue) {
        setData(newData)
    }
 
-   return [data,saveData]
+   const deleteAllData = () =>{
+    window.localStorage.clear()
+}
+
+   return [data,saveData,deleteAllData]
 }
 
 export {useLocalStorage}
