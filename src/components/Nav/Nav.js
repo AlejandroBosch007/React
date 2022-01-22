@@ -1,6 +1,14 @@
 import './Nav.css';
 import { NavLink } from "react-router-dom";
+import { useNavigate } from "react-router-dom";
+import { useLocalStorage } from "../../hooks/useLocalStorage";
+
+
+
 function Nav() {
+  const [token, saveToken]= useLocalStorage("TOKEN",{})
+  const navigate = useNavigate()
+
   return (
     <nav className="navbar navbar-expand-lg navbar-light bg-light">
     <div className="container-fluid">
@@ -19,6 +27,12 @@ function Nav() {
           <li className="nav-item">
             <NavLink className="nav-link" to="/login">Login</NavLink>
           </li>
+        </ul>
+        <ul className="navbar-nav" >
+          <li className="nav-item" > <a  href="" onClick={()=> {
+          saveToken({})
+          navigate("/login")
+         }}> Log Out</a></li>
         </ul>
       </div>
     </div>

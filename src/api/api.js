@@ -16,9 +16,16 @@ const savePokemon = async (idPokemon) =>{
     .catch(err => console.log(err))
 }
 
-const listPokemon = async () =>{
-    let list = await fetch('http://localhost:3001/listpokemon');
-    return list
+const listPokemon = async (token) =>{
+    return await fetch('http://localhost:3001/listpokemon',{
+        method: 'GET',
+        headers:{
+            'Content-Type': 'application/json',
+            'Authorization': token
+        }
+    })
+    .then(res=>res.json())
+    .catch(err => console.log(err))
 }
 
 

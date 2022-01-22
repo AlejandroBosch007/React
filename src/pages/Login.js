@@ -30,7 +30,6 @@ function Login() {
                 setError({
                     errorMessage:loginResult.error,
                     error:true})
-                    navigate("/quotes")
             }
 
             if(loginResult.token){
@@ -40,8 +39,8 @@ function Login() {
                     let data = loginResult.token.split(".")
                     let userData = window.atob(data[1])
                     saveUser(userData)
-                    console.log(user)
-                    console.log(token)
+                    navigate("/")
+
 
 
             }

@@ -4,7 +4,6 @@ require("dotenv").config()
 const sql = require("./db/conexion")
 const app = express()
 
-
 //Views
 const pokemon = require("./view/pokemon")
 const user = require("./view/user")
