@@ -1,23 +1,21 @@
-import { useState } from 'react';
+import { useState,useEffect } from 'react';
 import {listPokemon} from '../../api/api';
 
 function ListPokemon() {
 
-    const pokelist = [{idPokemon: 1, date:"2021-01-19"},{idPokemon: 2, date:"2021-01-19"},{idPokemon: 3, date:"2021-01-19"},{idPokemon: 4, date:"2021-01-19"}]
 
-    const [list, setList] = useState(pokelist)
+    const [list, setList] = useState([])
 
     const newListPokemon = async () => {
          const pokelistBak = await listPokemon()
          let pokeJSON = await pokelistBak.json()
-         console.log(  pokeJSON.list[0])
          setList(pokeJSON.list[0])
     }
 
-
+    useEffect(newListPokemon,[])
 
     return (
-        <div className="card" onMouseUp={newListPokemon}>
+        <div className="card">
             <div className="card-body">
                 <h3>Lista de Pokemones:</h3>
                 <table className="table table-bordered table-striped">
@@ -38,9 +36,6 @@ function ListPokemon() {
                         }   
                     </tbody>
                </table>
-         
-
-
             </div>
         </div>
      );

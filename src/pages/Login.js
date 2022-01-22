@@ -1,7 +1,7 @@
 import { useState } from 'react';
 import { useNavigate } from "react-router-dom";
 import {apiLogin} from '../api/api';
-
+import { useLocalStorage } from "../hooks/useLocalStorage";
 function Login() {
 
     const navigate = useNavigate()
@@ -9,6 +9,10 @@ function Login() {
     const [loading,setLoading] = useState(false)
 
     const [error,setError] = useState({error:false,errorMessage:"Error"})
+
+    const [user, saveUser]= useLocalStorage("USER",{})  
+    const [token, saveToken]= useLocalStorage("TOKEN",{})
+
 
     const login = async (event) =>{
         event.preventDefault()
@@ -26,17 +30,23 @@ function Login() {
                 setError({
                     errorMessage:loginResult.error,
                     error:true})
+                    navigate("/quotes")
             }
 
             if(loginResult.token){
                 setError({...error,
                     error:false})
-                    localStorage.setItem("TOKEN",loginResult.token)
+                    saveToken({token: loginResult.token})
                     let data = loginResult.token.split(".")
                     let userData = window.atob(data[1])
-                    localStorage.setItem("USERDATA",userData)
-                    navigate("/quotes")
+                    saveUser(userData)
+                    console.log(user)
+                    console.log(token)
+
+
             }
+
+            
 
         }
 

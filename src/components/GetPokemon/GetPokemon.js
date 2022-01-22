@@ -1,10 +1,9 @@
 import { useState } from 'react';
 import { getPokemon, savePokemon } from '../../api/api';
-
 import './GetPokemon.css';
 
 function GetPokemon(props) {
-
+    
     const [state, setState] = useState({pokemonImage:"",pokemonName:"",pokemonID:false})  
 
     const printPokemon = async (event) =>{
