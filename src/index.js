@@ -9,12 +9,6 @@ import { Login } from "./pages/Login";
 import { Nav } from "./components/Nav/Nav";
 import { GlobalProvider } from "./context/GlobalContext";
 
-
-
-
-
-
-
 ReactDOM.render(
   <GlobalProvider>
     <BrowserRouter>
