@@ -6,13 +6,18 @@ import { useLocalStorage } from "../../hooks/useLocalStorage";
 
 
 function Nav() {
-  const [token, saveToken]= useLocalStorage("TOKEN",{})
+  const [token ,saveToken]= useLocalStorage("TOKEN",{})
   const navigate = useNavigate()
 
+  const logout = ()=>{
+    navigate("/login")
+    saveToken({})
+  }
+
   return (
-    <nav className="navbar navbar-expand-lg navbar-light bg-light">
+    <nav className="navbar navbar-expand-lg navbar-dark bg-dark">
     <div className="container-fluid">
-      <NavLink className="nav-link" to="/">Home</NavLink>
+      <NavLink className="nav-link brand" to="/"> <i class="fab fa-react"></i> React</NavLink>
       <button className="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
         <span className="navbar-toggler-icon"></span>
       </button>
@@ -24,15 +29,22 @@ function Nav() {
           <li className="nav-item">  
             <NavLink className="nav-link" to="/quotes">Quotes</NavLink>
           </li>
-          <li className="nav-item">
-            <NavLink className="nav-link" to="/login">Login</NavLink>
+          <li className="nav-item">  
+            <NavLink className="nav-link" to="/counter">Counter</NavLink>
           </li>
         </ul>
         <ul className="navbar-nav" >
-          <li className="nav-item" > <a  href="" onClick={()=> {
-          saveToken({})
-          navigate("/login")
-         }}> Log Out</a></li>
+        {!token.token &&
+          <li className="nav-item">
+            <NavLink className="nav-link" to="/login">Login <i class="fas fa-sign-in-alt"></i></NavLink>
+          </li>
+          }
+        {token.token &&
+          <li className="nav-item" > 
+            <span className="nav-link" onClick={logout}> Log Out <i class="fas fa-sign-out-alt"></i> </span>
+          </li>
+          }
+
         </ul>
       </div>
     </div>

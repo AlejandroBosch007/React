@@ -5,7 +5,7 @@ module.exports.save = async (idPokemon) => {
 }
 
 module.exports.list = async () => {
-    let result = await sql.query('SELECT * FROM lastpokemon ORDER BY time DESC')
+    let result = await sql.query('SELECT * FROM lastpokemon ORDER BY time DESC LIMIT 10')
     return result  
 }
 

@@ -9,14 +9,11 @@ import { useEffect } from 'react';
 function Pokemon() {
     const [token]= useLocalStorage("TOKEN",{})
     const navigate = useNavigate()
-
-    const getOut = (token) =>{
-        if (!token) {
-          navigate("/login")
-        }
-    }
+    
     useEffect(()=>{
-        getOut(token.token)
+        if (!token.token) {
+            navigate("/login")
+          }
     },[])
 
     return ( 

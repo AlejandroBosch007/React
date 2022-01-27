@@ -54,11 +54,12 @@ function Login() {
 
     return ( 
         <div className="container">
+            <br/>
           <div className="row">
              <div className="col-lg-6 offset-lg-3">
                 <div className="card">
                     <div className="card-body">
-                        <h5 className="card-title">Bienvenide</h5>
+                        <h5 className="card-title">Bienvenide:</h5>
                         { error.error && (
                             <div className="alert alert-danger text-center" role="alert">
                             <strong>{error.errorMessage}</strong>
@@ -66,7 +67,7 @@ function Login() {
                         )}
                         <form onSubmit={login}>
                             <div className="form-floating mb-3">
-                                <input type="email" className="form-control" id="floatingInput" placeholder="name@example.com" autoFocus required/>
+                                <input type="email" className="form-control" id="floatingInput" placeholder="name@example.com" value={user.email} autoFocus required/>
                                 <label htmlFor="floatingInput">Email address</label>
                             </div>
                             <div className="form-floating">

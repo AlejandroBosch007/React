@@ -1,3 +1,9 @@
-.active{
-    font-weight: bold;
+.active {
+  font-weight: bold;
+}
+.nav-link {
+  cursor: pointer;
+}
+.brand {
+  color: white !important;
 }

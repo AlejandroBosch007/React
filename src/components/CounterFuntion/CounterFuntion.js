@@ -1,8 +1,8 @@
 
 import { useState } from 'react';
-import './Counter.css';
+import './CounterFuntion.css';
 
-function Counter() {
+function CounterFuntion() {
 
     const [state, setState] = useState({counter: 0,title:"Contador de estado",color:"blue"})  
 
@@ -68,4 +68,4 @@ function Counter() {
   );
 }
 
-export {Counter};
+export {CounterFuntion};

@@ -1,7 +1,7 @@
-import './Quotes.css';
+import './QuotesCreator.css';
 import { useState } from 'react';
 
-function Quotes({quotesDB}) {
+function QuotesCreator({quotesDB}) {
 
 const [quotes,setQuotes] = useState(quotesDB)
 
@@ -89,4 +89,4 @@ const onSubmit = (event) => {
   );
 }
 
-export {Quotes};
+export {QuotesCreator};
