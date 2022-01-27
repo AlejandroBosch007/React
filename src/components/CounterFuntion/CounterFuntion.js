@@ -31,15 +31,10 @@ function CounterFuntion() {
     }
 
 
-    const setColor = (event) =>{
-        let newState = {
-            ...state,
-            color: event.target.value
-        }
-        setState(newState)
-    }
+
     const isEven = state.counter % 2 === 0
     const message = isEven ? "Is Even" : "Is Odd"
+    
   return (
 <div className='container text-center'>
    <br />
