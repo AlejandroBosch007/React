@@ -8,7 +8,7 @@ function ListPokemon() {
 
   const [list, setList] = useState([]);
 
-  const { pokemonIiGlobal, setpokemonIiGlobal } = useContext(PokemonContext);
+  const { pokemonIiGlobal } = useContext(PokemonContext);
 
   const newListPokemon = async (token) => {
     const pokelistBak = await listPokemon(token);

@@ -4,7 +4,7 @@ import "./GetPokemon.css";
 import { PokemonContext } from "../../context/PokemonContext";
 
 function GetPokemon(props) {
-  const { pokemonIiGlobal, setpokemonIiGlobal } = useContext(PokemonContext);
+  const {setpokemonIiGlobal } = useContext(PokemonContext);
 
   const [state, setState] = useState({
     pokemonImage: "",
@@ -23,6 +23,8 @@ function GetPokemon(props) {
       pokemonID: event.target.value,
     };
     setState(newState);
+    await savePokemon(event.target.value)
+
     setpokemonIiGlobal(event.target.value);
   };
 
