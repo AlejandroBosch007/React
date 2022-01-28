@@ -4,13 +4,11 @@ import { useLocalStorage } from "../../hooks/useLocalStorage";
 import { PokemonContext } from "../../context/PokemonContext";
 
 function ListPokemon() {
-
   const [token] = useLocalStorage("TOKEN", {});
 
   const [list, setList] = useState([]);
 
-  const { pokemonIiGlobal, setpokemonIiGlobal } = useContext(PokemonContext)
-
+  const { pokemonIiGlobal, setpokemonIiGlobal } = useContext(PokemonContext);
 
   const newListPokemon = async (token) => {
     const pokelistBak = await listPokemon(token);

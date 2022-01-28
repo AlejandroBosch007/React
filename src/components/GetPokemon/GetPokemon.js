@@ -22,11 +22,9 @@ function GetPokemon(props) {
       pokemonName: pokeJSON.name,
       pokemonID: event.target.value,
     };
-    setState(newState);
-    
-    setpokemonIiGlobal(event.target.value);
 
-    console.log(await savePokemon(event.target.value));
+    setState(newState);
+    setpokemonIiGlobal(event.target.value);
   };
 
   return (
