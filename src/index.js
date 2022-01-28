@@ -15,12 +15,12 @@ ReactDOM.render(
       <Nav />
       <Routes>
         <Route path="/" element={<Pokemon />} />
-        <Route path="/quotes" element={<Quotes/>} />
+        <Route path="/quotes" element={<Quotes />} />
         <Route path="/counter" element={<Counter />} />
         <Route path="/login" element={<Login />} />
         <Route path="*" element={<NotFound />} />
       </Routes>
     </BrowserRouter>
-  </GlobalProvider>
-  ,document.getElementById("root")
+  </GlobalProvider>,
+  document.getElementById("root")
 );
