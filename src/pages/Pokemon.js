@@ -22,7 +22,6 @@ function Pokemon() {
         <GetPokemon />
         <ListPokemon />
       </PokemonProvider>
-
     </div>
   );
 }

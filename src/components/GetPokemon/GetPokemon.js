@@ -1,10 +1,10 @@
-import { useState,useContext } from "react";
+import { useState, useContext } from "react";
 import { getPokemon, savePokemon } from "../../api/api";
 import "./GetPokemon.css";
 import { PokemonContext } from "../../context/PokemonContext";
-function GetPokemon(props) {
 
-  const { pokemonIiGlobal, setpokemonIiGlobal } = useContext(PokemonContext)
+function GetPokemon(props) {
+  const { pokemonIiGlobal, setpokemonIiGlobal } = useContext(PokemonContext);
 
   const [state, setState] = useState({
     pokemonImage: "",
@@ -23,7 +23,8 @@ function GetPokemon(props) {
       pokemonID: event.target.value,
     };
     setState(newState);
-    setpokemonIiGlobal(event.target.value)
+    
+    setpokemonIiGlobal(event.target.value);
 
     console.log(await savePokemon(event.target.value));
   };
