@@ -3,7 +3,6 @@ import { useState, useContext } from "react";
 import { GlobalContext } from "../../context/GlobalContext";
 
 function QuotesCreator() {
-
   const Context = useContext(GlobalContext);
   const [quotes, setQuotes] = useState(Context.strings.quotesDB);
   const [loading, setLoading] = useState(false);

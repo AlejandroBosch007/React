@@ -8,7 +8,7 @@ function Login() {
   const [loading, setLoading] = useState(false);
   const [error, setError] = useState({ error: false, errorMessage: "Error" });
   const [user, saveUser] = useLocalStorage("USER", {});
-  const [ saveToken] = useLocalStorage("TOKEN", {});
+  const [saveToken] = useLocalStorage("TOKEN", {});
 
   const login = async (event) => {
     event.preventDefault();
