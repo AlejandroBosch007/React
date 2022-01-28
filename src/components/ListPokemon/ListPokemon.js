@@ -1,12 +1,16 @@
-import { useState, useEffect } from "react";
+import { useState, useEffect, useContext } from "react";
 import { listPokemon } from "../../api/api";
 import { useLocalStorage } from "../../hooks/useLocalStorage";
+import { PokemonContext } from "../../context/PokemonContext";
 
 function ListPokemon() {
+
   const [token] = useLocalStorage("TOKEN", {});
 
-  console.log();
   const [list, setList] = useState([]);
+
+  const { pokemonIiGlobal, setpokemonIiGlobal } = useContext(PokemonContext)
+
 
   const newListPokemon = async (token) => {
     const pokelistBak = await listPokemon(token);
@@ -15,7 +19,7 @@ function ListPokemon() {
 
   useEffect(() => {
     newListPokemon(token.token);
-  }, []);
+  }, [pokemonIiGlobal]);
 
   return (
     <div className="card">

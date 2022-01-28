@@ -16,7 +16,6 @@ function Nav() {
     <nav className="navbar navbar-expand-lg navbar-dark bg-dark">
       <div className="container-fluid">
         <NavLink className="nav-link brand" to="/">
-          {" "}
           <i className="fab fa-react"></i> React
         </NavLink>
         <button

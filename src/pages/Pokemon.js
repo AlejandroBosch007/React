@@ -3,8 +3,10 @@ import { ListPokemon } from "../components/ListPokemon/ListPokemon";
 import { useLocalStorage } from "../hooks/useLocalStorage";
 import { useNavigate } from "react-router-dom";
 import { useEffect } from "react";
+import { PokemonProvider } from "../context/PokemonContext";
 
 function Pokemon() {
+
   const [token] = useLocalStorage("TOKEN", {});
   const navigate = useNavigate();
 
@@ -16,8 +18,11 @@ function Pokemon() {
 
   return (
     <div className="container text-center">
-      <GetPokemon />
-      <ListPokemon />
+      <PokemonProvider>
+        <GetPokemon />
+        <ListPokemon />
+      </PokemonProvider>
+
     </div>
   );
 }
