@@ -1,4 +1,4 @@
-import { createContext,useState} from "react";
+import {createContext,useState} from "react";
 const GlobalContext = createContext();
 
 const GlobalProvider = ({children}) =>{
@@ -33,7 +33,7 @@ const GlobalProvider = ({children}) =>{
         
       }
 return(
-    <GlobalContext.Provider value={ {sesion ,setSesion,strings}}>
+    <GlobalContext.Provider value={{sesion,setSesion,strings}}>
     {children}
     </GlobalContext.Provider>)
 

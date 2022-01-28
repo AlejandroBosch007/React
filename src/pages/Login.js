@@ -1,9 +1,11 @@
-import { useState } from "react";
+import { useState,useContext } from "react";
 import { useNavigate } from "react-router-dom";
 import { apiLogin } from "../api/api";
 import { useLocalStorage } from "../hooks/useLocalStorage";
+import { GlobalContext } from "../context/GlobalContext";
 
 function Login() {
+  const {setSesion} = useContext(GlobalContext);
   const navigate = useNavigate();
   const [loading, setLoading] = useState(false);
   const [error, setError] = useState({ error: false, errorMessage: "Error" });
@@ -34,7 +36,8 @@ function Login() {
         saveToken({ token: loginResult.token });
         let data = loginResult.token.split(".");
         let userData = window.atob(data[1]);
-        saveUser(userData);
+        saveUser(userData)
+        setSesion(userData)
         navigate("/");
       }
     }
@@ -60,7 +63,7 @@ function Login() {
                     className="form-control"
                     id="floatingInput"
                     placeholder="name@example.com"
-                    value={user.email}
+                    defaultValue={user.email}
                     autoFocus
                     required
                   />
