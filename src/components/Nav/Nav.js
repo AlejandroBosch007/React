@@ -46,6 +46,11 @@ function Nav() {
                 Counter
               </NavLink>
             </li>
+            <li className="nav-item">
+              <NavLink className="nav-link" to="/redux">
+                Redux
+              </NavLink>
+            </li>
           </ul>
           <ul className="navbar-nav">
             {!token.token && (
