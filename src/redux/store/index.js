@@ -2,7 +2,7 @@ import { createStore, combineReducers, applyMiddleware, compose } from "redux";
 import createSagaMiddleware from "redux-saga";
 import { bankReducer } from "../reducers/bank";
 import { quotesReducer } from "../reducers/quotes";
-import { quotesWacher } from "../sagas/quotes";
+import { rootSaga } from "../sagas/";
 
 const sagaMiddleware = createSagaMiddleware();
 
@@ -31,6 +31,6 @@ const store = createStore(
     reduxDevTools
   )
 );
-sagaMiddleware.run(quotesWacher);
+sagaMiddleware.run(rootSaga);
 
 export { store };
