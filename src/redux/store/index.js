@@ -1,13 +1,36 @@
-import { createStore, combineReducers } from "redux";
-import {bankReducer} from "../reducers/bank";
+import { createStore, combineReducers, applyMiddleware, compose } from "redux";
+import createSagaMiddleware from "redux-saga";
+import { bankReducer } from "../reducers/bank";
+import { quotesReducer } from "../reducers/quotes";
+import { quotesWacher } from "../sagas/quotes";
+
+const sagaMiddleware = createSagaMiddleware();
 
 const reducers = combineReducers({
   bankReducer,
+  quotesReducer,
 });
+
+const logger = (store) => (next) => (action) => {
+  console.group(action.type);
+  console.info("dispatchig", action);
+  let result = next(action);
+  console.log("next state", store.getState());
+  console.groupEnd();
+  return result;
+};
+
+const reduxDevTools =
+  window.__REDUX_DEVTOOLS_EXTENSION__ && window.__REDUX_DEVTOOLS_EXTENSION__();
 
 const store = createStore(
   reducers,
-  window.__REDUX_DEVTOOLS_EXTENSION__ && window.__REDUX_DEVTOOLS_EXTENSION__()
+  compose(
+    applyMiddleware(sagaMiddleware),
+    applyMiddleware(logger),
+    reduxDevTools
+  )
 );
+sagaMiddleware.run(quotesWacher);
 
 export { store };

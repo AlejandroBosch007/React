@@ -1,27 +1,24 @@
 import "./QuotesCreator.css";
-import { useState, useContext } from "react";
-import { GlobalContext } from "../../context/GlobalContext";
+import { save } from "../../redux/actions/quotes";
+import { connect } from "react-redux";
 
-function QuotesCreator() {
-  const Context = useContext(GlobalContext);
-  const [quotes, setQuotes] = useState(Context.strings.quotesDB);
-  const [loading, setLoading] = useState(false);
+const mapStateToProps = (state) => {
+  return {
+    quotes: state.quotesReducer.quotes,
+    loading: state.quotesReducer.loading,
+  };
+};
 
+function QuotesCreator({ quotes, save, loading }) {
   const onSubmit = (event) => {
     event.preventDefault();
-    console.log(event);
     let newQuote = {
       id: quotes.length + 1,
       author: event.target[0].value,
       quote: event.target[1].value,
     };
-
-    setLoading(true);
-    setTimeout(() => {
-      setQuotes([...quotes, newQuote]);
-      event.target.reset();
-      setLoading(false);
-    }, 2000);
+    event.target.reset();
+    save(newQuote);
   };
 
   return (
@@ -75,15 +72,12 @@ function QuotesCreator() {
                       <button className="btn btn-primary btn-block">Add</button>
                     </div>
                   )}
-                </form>
-
-                {loading && (
-                  <div className="text-center">
-                    <div className="spinner-grow text-primary" role="status">
+                  {loading && (
+                    <div className="spinner-border text-primary" role="status">
                       <span className="visually-hidden">Loading...</span>
                     </div>
-                  </div>
-                )}
+                  )}
+                </form>
               </div>
             </div>
           </div>
@@ -93,4 +87,4 @@ function QuotesCreator() {
   );
 }
 
-export { QuotesCreator };
+export default connect(mapStateToProps, { save })(QuotesCreator);

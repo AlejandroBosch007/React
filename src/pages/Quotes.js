@@ -1,4 +1,4 @@
-import { QuotesCreator } from "../components/QuotesCreator/QuotesCreator";
+import  QuotesCreator  from "../components/QuotesCreator/QuotesCreator";
 import { useLocalStorage } from "../hooks/useLocalStorage";
 import { useNavigate } from "react-router-dom";
 import { useEffect } from "react";
