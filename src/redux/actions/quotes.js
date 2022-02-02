@@ -1,4 +1,4 @@
-import { SAVE_QUOTE, SAVING_QUOTE, SAVED_QUOTE, SAVE_QUOTE_ERROR } from "./const";
+import { SAVE_QUOTE, SAVING_QUOTE, SAVED_QUOTE } from "./const";
 
 const saving = () => {
   return {

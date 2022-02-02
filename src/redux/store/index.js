@@ -2,6 +2,8 @@ import { createStore, combineReducers, applyMiddleware, compose } from "redux";
 import createSagaMiddleware from "redux-saga";
 import { bankReducer } from "../reducers/bank";
 import { quotesReducer } from "../reducers/quotes";
+import { pokemonReducer } from "../reducers/pokemon";
+
 import { rootSaga } from "../sagas/";
 
 const sagaMiddleware = createSagaMiddleware();
@@ -9,6 +11,7 @@ const sagaMiddleware = createSagaMiddleware();
 const reducers = combineReducers({
   bankReducer,
   quotesReducer,
+  pokemonReducer,
 });
 
 const logger = (store) => (next) => (action) => {
@@ -31,6 +34,7 @@ const store = createStore(
     reduxDevTools
   )
 );
+
 sagaMiddleware.run(rootSaga);
 
 export { store };

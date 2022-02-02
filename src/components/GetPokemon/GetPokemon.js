@@ -1,31 +1,20 @@
-import { useState, useContext } from "react";
-import { getPokemon, savePokemon } from "../../api/api";
 import "./GetPokemon.css";
-import { PokemonContext } from "../../context/PokemonContext";
+import { getPokemon } from "../../redux/actions/pokemon";
+import { connect } from "react-redux";
 
-function GetPokemon(props) {
-  const {setpokemonIiGlobal } = useContext(PokemonContext);
+const mapStateToProps = (state) => {
+  return {
+    pokemon: state.pokemonReducer.pokemon,
+    loading: state.pokemonReducer.loading,
+    error: state.pokemonReducer.error,
+    idPokemon: state.pokemonReducer.idPokemon,
+  };
+};
 
-  const [state, setState] = useState({
-    pokemonImage: "",
-    pokemonName: "",
-    pokemonID: false,
-  });
-
-  const printPokemon = async (event) => {
-    let newPokemon = await getPokemon(event.target.value);
-    let pokeJSON = await newPokemon.json();
-
-    let newState = {
-      ...state,
-      pokemonImage: pokeJSON.sprites.front_default,
-      pokemonName: pokeJSON.name,
-      pokemonID: event.target.value,
-    };
-    setState(newState);
-    await savePokemon(event.target.value)
-
-    setpokemonIiGlobal(event.target.value);
+function GetPokemon({ pokemon, loading, error, idPokemon }) {
+  const printPokemon = (event) => {
+    event.preventDefault();
+    getPokemon(event.target.value)
   };
 
   return (
@@ -39,16 +28,34 @@ function GetPokemon(props) {
           placeholder="Ingresa ID del Pokémon"
         />
         <br />
-        {state.pokemonID > 0 && (
-          <>
-            <h3>{state.pokemonName}</h3>
-            <img className="img-fluid" src={state.pokemonImage} alt="Pokémon" />
-          </>
+
+        {loading && (
+          <div className="spinner-grow" role="status">
+            <span className="visually-hidden">Loading...</span>
+          </div>
         )}
+
+        {error && (
+          <div className="alert alert-danger" role="alert">
+            A simple danger alert—check it out!
+          </div>
+        )}
+
+        {idPokemon > 0 && (
+          <div>
+            <h3>{pokemon}</h3>
+            <img
+              className="img-fluid"
+              src={pokemon.pokemonImage}
+              alt="Pokémon"
+            />
+          </div>
+        )}
+
         <br />
       </div>
     </div>
   );
 }
 
-export { GetPokemon };
+export default connect(mapStateToProps, { getPokemon })(GetPokemon);
