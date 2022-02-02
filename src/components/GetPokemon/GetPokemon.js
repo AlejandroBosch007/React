@@ -1,7 +1,6 @@
 import "./GetPokemon.css";
 import { getPokemon } from "../../redux/actions/pokemon";
 import { connect } from "react-redux";
-import { useEffect } from "react";
 
 const mapStateToProps = (state) => {
   return {
@@ -40,12 +39,11 @@ function GetPokemon({ pokemon, loading, error, idPokemon, getPokemon }) {
 
         {error && (
           <div className="alert alert-danger" role="alert">
-            A simple danger alert—check it out!
+            No es posible conectar a la PokeAPI
           </div>
         )}
 
-        {pokemon.name && (
-
+        {pokemon.name && !loading && (
           <div>
             <h3>{pokemon.name}</h3>
             <img
