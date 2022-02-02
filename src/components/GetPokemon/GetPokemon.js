@@ -1,6 +1,7 @@
 import "./GetPokemon.css";
 import { getPokemon } from "../../redux/actions/pokemon";
 import { connect } from "react-redux";
+import { useEffect } from "react";
 
 const mapStateToProps = (state) => {
   return {
@@ -11,10 +12,11 @@ const mapStateToProps = (state) => {
   };
 };
 
-function GetPokemon({ pokemon, loading, error, idPokemon }) {
+function GetPokemon({ pokemon, loading, error, idPokemon, getPokemon }) {
+
   const printPokemon = (event) => {
     event.preventDefault();
-    getPokemon(event.target.value)
+    getPokemon(event.target.value);
   };
 
   return (
@@ -26,6 +28,7 @@ function GetPokemon({ pokemon, loading, error, idPokemon }) {
           type="number"
           onChange={printPokemon}
           placeholder="Ingresa ID del Pokémon"
+          value={idPokemon}
         />
         <br />
 
@@ -41,17 +44,17 @@ function GetPokemon({ pokemon, loading, error, idPokemon }) {
           </div>
         )}
 
-        {idPokemon > 0 && (
+        {pokemon.name && (
+
           <div>
-            <h3>{pokemon}</h3>
+            <h3>{pokemon.name}</h3>
             <img
               className="img-fluid"
-              src={pokemon.pokemonImage}
+              src={pokemon.sprites.front_default}
               alt="Pokémon"
             />
           </div>
-        )}
-
+       )}
         <br />
       </div>
     </div>

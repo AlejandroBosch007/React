@@ -1,4 +1,4 @@
-import {GET_POKEMON,GET_POKEMON_SUCCESS,GET_POKEMON_ERROR,} from "../actions/const";
+import {GET_POKEMON,GET_POKEMON_SUCCESS,GET_POKEMON_ERROR} from "../actions/const";
 
 const initialState = {
   pokemon: {},

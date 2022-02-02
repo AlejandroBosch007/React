@@ -5,7 +5,7 @@ const getPokemon = (payload) => {
     type: GET_POKEMON,
     loading: true,
     pokemon: {},
-    idPokemon: payload
+    payload: payload
   };
 };
 
