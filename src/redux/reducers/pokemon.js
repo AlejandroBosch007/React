@@ -12,7 +12,7 @@ const pokemonReducer = (state = initialState, action) => {
     case GET_POKEMON:
       return { ...state, loading: true, idPokemon: action.payload };
     case GET_POKEMON_SUCCESS:
-      return { ...state, loading: false, pokemon: action.payload };
+      return { ...state, loading: false, pokemon: action.payload, error: false  };
     case GET_POKEMON_ERROR:
       return { ...state, loading: false, error: true };
     default:
