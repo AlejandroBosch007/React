@@ -48,6 +48,9 @@ function Nav() {
             </li>
             <li className="nav-item">
               <NavLink className="nav-link" to="/redux">
+                <small>
+                  <i className="far fa-dot-circle text-light"></i>
+                </small>{" "}
                 Redux
               </NavLink>
             </li>
