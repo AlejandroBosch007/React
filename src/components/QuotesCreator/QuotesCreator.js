@@ -1,6 +1,7 @@
 import "./QuotesCreator.css";
 import { save } from "../../redux/actions/quotes";
 import { connect } from "react-redux";
+import { useForm } from "react-hook-form";
 
 const mapStateToProps = (state) => {
   return {
@@ -10,16 +11,23 @@ const mapStateToProps = (state) => {
 };
 
 function QuotesCreator({ quotes, save, loading }) {
-  const onSubmit = (event) => {
-    event.preventDefault();
+  const {
+    register,
+    handleSubmit,
+    watch,
+    formState: { errors },
+  } = useForm();
+
+  const onSubmit = (payload) => {
     let newQuote = {
       id: quotes.length + 1,
-      author: event.target[0].value,
-      quote: event.target[1].value,
+      author: payload.author,
+      quote: payload.quote
     };
-    event.target.reset();
     save(newQuote);
   };
+
+  //console.log(watch("author"))
 
   return (
     <div className="container-fluid">
@@ -47,20 +55,29 @@ function QuotesCreator({ quotes, save, loading }) {
           <div className="col-lg-3 offset-md-9">
             <div className="card">
               <div className="card-body">
-                <form onSubmit={onSubmit}>
+                <form onSubmit={handleSubmit(onSubmit)}>
                   <div className="mb-3">
                     <label className="form-label">Author:</label>
                     <input
+                      {...register("author", {
+                        required: true,
+                        maxLength: 10,
+                        pattern: /^[A-Za-z]/,
+                      })}
                       type="text"
                       className="form-control"
                       placeholder="author name"
-                      required
                     />
+                    {errors?.author?.type === "required" && <p className ="error">This field is required</p> }
+                    {errors?.author?.type === "maxLength" && <p  className ="error"> This field cannot exeed 10 characters</p> }
+                    {errors?.author?.type === "pattern" && <p  className ="error"> Alphabetical characters only</p> }
+
                   </div>
 
                   <div className="mb-3">
                     <label className="form-label">Quote:</label>
                     <textarea
+                      {...register("quote")}
                       className="form-control"
                       rows="4"
                       placeholder="write your quote:"

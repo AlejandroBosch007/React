@@ -5,3 +5,7 @@
 .quote-text{
     text-align: left;
 }
+
+.error{
+    color: red;
+}

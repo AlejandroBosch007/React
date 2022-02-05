@@ -28,7 +28,6 @@ ReactDOM.render(
         </Routes>
       </BrowserRouter>
     </GlobalProvider>
-  </Provider>
-  ,
+  </Provider>,
   document.getElementById("root")
 );
