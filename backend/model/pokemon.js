@@ -12,3 +12,14 @@ module.exports.list = async () => {
   );
   return result;
 };
+
+
+module.exports.listSome = async (id) => {
+  let result = await sql.query(
+    "SELECT * FROM lastpokemon WHERE idPokemon = "+ id +" ORDER BY time DESC LIMIT 1"
+  );
+  return result;
+};
+
+
+
