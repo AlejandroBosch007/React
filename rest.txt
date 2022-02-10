@@ -1,0 +1,21 @@
+POST http://localhost:3001/savepokemon
+content-type: application/json
+
+{
+    "idPokemon": 1000
+}
+
+
+####
+POST http://localhost:3001/login
+content-type: application/json
+
+{
+    "email": "ale@tecla.com",
+    "pass": "tecla"
+}
+
+
+###
+GET http://localhost:3001/listpokemon
+Authorization: eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJlbWFpbCI6ImFsZUB0ZWNsYS5jb20iLCJuYW1lIjoiQWxlamFuZHJvIiwiYnJkX2RhdGUiOiIxOTkwLTA3LTI2IiwiaWF0IjoxNjQ0NDU3MjIzfQ.k_U7AnrXZq1tehKn6JgXexyVNUsbsaT4RlX2MC_xpTA

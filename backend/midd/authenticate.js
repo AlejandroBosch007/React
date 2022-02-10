@@ -1,7 +1,7 @@
 const jwt = require("jsonwebtoken");
 
 const userVerify = async (token) => {
-  return jwt.verify(token, "Alojomora");
+  return jwt.verify(token, "Alojomora",{expiresIn: "3d" });
 };
 
 module.exports.authenticate = async (req, res, next) => {
@@ -13,7 +13,7 @@ module.exports.authenticate = async (req, res, next) => {
         return next();
       }
     } else {
-      res.status(500).json({ error: "No token" });
+      res.status(410).json({ error: "No token" });
     }
   } catch (err) {
     res.status(500).json({ error: err });

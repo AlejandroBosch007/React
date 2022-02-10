@@ -6,15 +6,17 @@ import { Counter } from "./pages/Counter";
 import { Pokemon } from "./pages/Pokemon";
 import { NotFound } from "./pages/404";
 import { Login } from "./pages/Login";
-import  Bank  from "./pages/Bank";
+import Bank from "./pages/Bank";
 import { Nav } from "./components/Nav/Nav";
+
+import { Card } from "./components/Card/Card";
+
 import { GlobalProvider } from "./context/GlobalContext";
 import { Provider } from "react-redux";
 import { store } from "./redux/store";
 
-
 ReactDOM.render(
-  <Provider store = {store}>
+  <Provider store={store}>
     <GlobalProvider>
       <BrowserRouter>
         <Nav />
@@ -24,6 +26,7 @@ ReactDOM.render(
           <Route path="/counter" element={<Counter />} />
           <Route path="/redux" element={<Bank />} />
           <Route path="/login" element={<Login />} />
+          <Route path="/card" element={<Card mesage="Hola a todos" name="Antonio"/>} />
           <Route path="*" element={<NotFound />} />
         </Routes>
       </BrowserRouter>
