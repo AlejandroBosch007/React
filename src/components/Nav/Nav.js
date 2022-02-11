@@ -16,7 +16,7 @@ function Nav() {
     <nav className="navbar navbar-expand-lg navbar-dark bg-dark">
       <div className="container-fluid">
         <NavLink className="nav-link brand" to="/">
-          <i className="fab fa-react"></i> React
+          <i className="fab fa-react"></i> 
         </NavLink>
         <button
           className="navbar-toggler"
@@ -33,30 +33,7 @@ function Nav() {
           <ul className="navbar-nav me-auto mb-2 mb-lg-0">
             <li className="nav-item">
               <NavLink className="nav-link" to="/">
-                Pokemon
-              </NavLink>
-            </li>
-            <li className="nav-item">
-              <NavLink className="nav-link" to="/quotes">
-                Quotes
-              </NavLink>
-            </li>
-            <li className="nav-item">
-              <NavLink className="nav-link" to="/counter">
-                Counter
-              </NavLink>
-            </li>
-            <li className="nav-item">
-              <NavLink className="nav-link" to="/card">
-                Card
-              </NavLink>
-            </li>
-            <li className="nav-item">
-              <NavLink className="nav-link" to="/redux">
-                <small>
-                  <i className="far fa-dot-circle text-light"></i>
-                </small>{" "}
-                Redux
+                PokeAmigos
               </NavLink>
             </li>
           </ul>

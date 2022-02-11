@@ -8,12 +8,14 @@ import { NotFound } from "./pages/404";
 import { Login } from "./pages/Login";
 import Bank from "./pages/Bank";
 import { Nav } from "./components/Nav/Nav";
-
 import { Card } from "./components/Card/Card";
-
 import { GlobalProvider } from "./context/GlobalContext";
 import { Provider } from "react-redux";
 import { store } from "./redux/store";
+
+
+import  PokeFriends  from "./pages/PokeFriends";
+
 
 ReactDOM.render(
   <Provider store={store}>
@@ -21,7 +23,8 @@ ReactDOM.render(
       <BrowserRouter>
         <Nav />
         <Routes>
-          <Route path="/" element={<Pokemon />} />
+          <Route path="/" element={<PokeFriends />} />
+          <Route path="/pokemon" element={<Pokemon />} />
           <Route path="/quotes" element={<Quotes />} />
           <Route path="/counter" element={<Counter />} />
           <Route path="/redux" element={<Bank />} />

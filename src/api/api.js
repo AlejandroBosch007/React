@@ -38,4 +38,18 @@ const apiLogin = async (userData) => {
     .catch((err) => console.log(err));
 };
 
-export { getPokemon, savePokemon, listPokemon, apiLogin };
+
+const userData = async (userData,token) => {
+  return await fetch("http://localhost:3001/whoiam", {
+    method: "POST",
+    body: JSON.stringify(userData),
+    headers: {
+      "Content-Type": "application/json",
+      Authorization: token,
+    },
+  })
+    .then((res) => res.json())
+    .catch((err) => console.log(err));
+};
+
+export { getPokemon, savePokemon, listPokemon, apiLogin , userData };

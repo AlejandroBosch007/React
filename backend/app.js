@@ -12,6 +12,8 @@ const user = require("./view/user");
 app.use(express.json());
 app.use(cors());
 
+app.use('/', express.static('public'));
+
 async function serverStart() {
   await sql.authenticate();
   app.listen(3001, () => {
@@ -20,6 +22,5 @@ async function serverStart() {
 }
 
 serverStart();
-
 pokemon(app);
 user(app);
