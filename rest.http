@@ -5,7 +5,6 @@ content-type: application/json
     "idPokemon": 1000
 }
 
-
 ####
 POST http://localhost:3001/login
 content-type: application/json
@@ -15,7 +14,36 @@ content-type: application/json
     "pass": "tecla"
 }
 
-
 ###
 GET http://localhost:3001/listpokemon
 Authorization: eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJlbWFpbCI6ImFsZUB0ZWNsYS5jb20iLCJuYW1lIjoiQWxlamFuZHJvIiwiYnJkX2RhdGUiOiIxOTkwLTA3LTI2IiwiaWF0IjoxNjQ0NDU3MjIzfQ.k_U7AnrXZq1tehKn6JgXexyVNUsbsaT4RlX2MC_xpTA
+
+###
+
+POST http://localhost:3001/whoiam
+content-type: application/json
+Authorization: eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJlbWFpbCI6ImFsZUB0ZWNsYS5jb20iLCJuYW1lIjoiQWxlamFuZHJvIiwiYnJkX2RhdGUiOiIxOTkwLTA3LTI2IiwiaWF0IjoxNjQ0NDU3MjIzfQ.k_U7AnrXZq1tehKn6JgXexyVNUsbsaT4RlX2MC_xpTA
+
+{
+    "email": "ale@tecla.com"
+}
+
+### Friend
+POST http://localhost:3001/friends
+content-type: application/json
+
+{
+    "email": "ale@tecla.com",
+    "friend": "mane@tecla.com"
+}
+
+
+### Friend
+POST http://localhost:3001/friends
+content-type: application/json
+
+{
+    "email": "ale@tecla.com",
+    "friend": "mane@tecla.com",
+    "type":"accept"
+}
