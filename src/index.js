@@ -4,6 +4,7 @@ import { BrowserRouter, Routes, Route } from "react-router-dom";
 import { Quotes } from "./pages/Quotes";
 import { Counter } from "./pages/Counter";
 import { Pokemon } from "./pages/Pokemon";
+import { Params } from "./pages/Params";
 import { NotFound } from "./pages/404";
 import { Login } from "./pages/Login";
 import Bank from "./pages/Bank";
@@ -29,6 +30,7 @@ ReactDOM.render(
           <Route path="/counter" element={<Counter />} />
           <Route path="/redux" element={<Bank />} />
           <Route path="/login" element={<Login />} />
+          <Route path="/params/:name" element={<Params />} />
           <Route path="/card" element={<Card mesage="Hola a todos" name="Antonio"/>} />
           <Route path="*" element={<NotFound />} />
         </Routes>
