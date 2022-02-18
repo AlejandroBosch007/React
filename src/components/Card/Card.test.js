@@ -4,7 +4,7 @@ import { Card } from "./Card";
 
 test("Card Render", () => {
   const card = {
-    name: "Yahir",
+    name: "Antonio",
     message: "Hola ¿cómo estás?",
   };
 
